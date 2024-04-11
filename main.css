@@ -4,3 +4,22 @@ body {
     font-family: Arial;
     margin: 0px;
 }
+a:link {
+    color: #2ecc71;
+    background-color: #ecf0f1;
+    text-decoration: none;
+}
+a:visited {
+    color: #9b59b6;
+    background-color: #f0e4f7;
+    text-decoration: underline;
+}
+a:hover {
+    color: #3498db;
+    background-color: #f8f9fa;
+    text-shadow: 2px 2px 4px #7f8c8d;
+}
+a:active {
+    color: black;
+    opacity: 0.3;
+}
