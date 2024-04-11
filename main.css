@@ -5,6 +5,8 @@ body {
     margin: 0px;
 }
 a {
+    color: green;
+    text-decoration: none;
     transition: 1s 2s;
 }
 a:link {
@@ -26,4 +28,24 @@ a:hover {
 a:active {
     color: black;
     opacity: 0.3;
+}
+div.menu {
+    border: 7px solid #00880080;
+    border-radius: 5px;
+    width: 300;
+    margin: 0 auto;
+    background-color: #34495e;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+div.menu:hover {
+    background-color: #ffffff30;
+    box-shadow: 0 0 15px #00000030;
+    color: #ecf0f1;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
