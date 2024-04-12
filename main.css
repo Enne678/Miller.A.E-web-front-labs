@@ -49,3 +49,17 @@ div.menu:hover {
     border-radius: 5px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
+footer {
+    background-color: black;
+    color: lightgreen;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+main {
+    margin: 10px 20px 67.725px;
+}
