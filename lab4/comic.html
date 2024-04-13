@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .speech-bubble {
+            position: absolute;
+            width: 120px;
+            height: 80px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.5s;
+            visibility: hidden;
+        }
+        .image-container:hover .speech-bubble {
+            opacity: 1;
+            visibility: visible;
+        }
+        .bubble1 { top: 260px; left: 170px; }
+        .bubble2 { top: 320px; left: 270px; }
+        .bubble3 { top: 380px; left: 370px; }
+        .bubble4 { top: 440px; left: 470px; }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div class="image-container">
+            <img src="37a21178cf2bab80a83a77261b6f972a.png" alt="Hero Image">
+            <div class="speech-bubble bubble1"></div>
+            <div class="speech-bubble bubble2"></div>
+            <div class="speech-bubble bubble3"></div>
+            <div class="speech-bubble bubble4">OOMPH!</div>
+        </div>
+    </main>
+
+    <footer>
+        © Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
