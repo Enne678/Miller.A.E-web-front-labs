@@ -46,6 +46,33 @@
         function showWelcomeMessage() {
             alert('Приветствую вас на моей странице! Всегда стремитесь к лучшему.');
         }
+        function showDifference() {
+        let inputA = document.getElementById('numberA');
+        let inputB = document.getElementById('numberB');
+      
+        let a = parseInt(inputA.value);
+        let b = parseInt(inputB.value);
+        let result = a - b;
+        alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+    }
+    function showProduct() {
+        let inputA = document.getElementById('numberA');
+        let inputB = document.getElementById('numberB');
+      
+        let a = parseInt(inputA.value);
+        let b = parseInt(inputB.value);
+        let result = a * b;
+        alert('Произведение ' + a + ' и ' + b + ' равно ' + result);
+    }
+    function showDivision() {
+        let inputA = document.getElementById('numberA');
+        let inputB = document.getElementById('numberB');
+      
+        let a = parseInt(inputA.value);
+        let b = parseInt(inputB.value);
+        let result = a / b;
+        alert('Деление ' + a + ' на ' + b + ' равно ' + result);
+    }
     </script>
 </head>
 <body>
@@ -57,7 +84,9 @@
         <label>Первое число <input type="number" value="" id="numberA"></label><br>
         <label>Второе число <input type="number" value="" id="numberB"></label><br>
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
-
+        <div class="message" onclick="showDifference()">Найти разность чисел</div>
+        <div class="message" onclick="showProduct()">Найти произведение</div>
+        <div class="message" onclick="showDivision()">Найти деление</div>
         <div class="message" onclick="showAuthor()">Узнать кто аватар страницы</div>
     </main>
 
