@@ -31,8 +31,11 @@
     </style>
     <script>
         function showSum() {
-            let a = 5154;
-            let b = 7891;
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+          
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
             let result = a + b;
             alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
         }
@@ -51,12 +54,15 @@
     </header>
     
     <main>
-        <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
+        <label>Первое число <input type="number" value="" id="numberA"></label><br>
+        <label>Второе число <input type="number" value="" id="numberB"></label><br>
+        <div class="message" onclick="showSum()">Найти сумму чисел</div>
+
         <div class="message" onclick="showAuthor()">Узнать кто аватар страницы</div>
     </main>
 
     <footer ondblclick="showWelcomeMessage()">
-        © Алексей Миллер, ФБИ-24, 2 курс, 2024
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
     </footer>
 </body>
 </html>
