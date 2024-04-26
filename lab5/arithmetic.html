@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .message {
+          cursor: pointer;
+          width: auto; 
+          padding: 10px; 
+          background-color: #f0f0f0;
+          border: 1px solid green;
+          border-radius: 10px; 
+          display: inline-block;
+          align-items: center;
+          justify-content: center; 
+          margin: 5px;
+          white-space: nowrap;
+        }
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function showSum() {
+            let a = 5154;
+            let b = 7891;
+            let result = a + b;
+            alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
+        }
+        function showAuthor() {
+            let author = 'Автор страницы:\n Миллер Алексей Евгеньевич';
+            alert(author);
+        } 
+        function showWelcomeMessage() {
+            alert('Приветствую вас на моей странице! Всегда стремитесь к лучшему.');
+        }
+    </script>
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    
+    <main>
+        <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
+        <div class="message" onclick="showAuthor()">Узнать кто аватар страницы</div>
+    </main>
+
+    <footer ondblclick="showWelcomeMessage()">
+        © Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
