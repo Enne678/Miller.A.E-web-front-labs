@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function calculateTotal() {
+            let items = document.querySelectorAll('.quantity');
+            let total = 0;
+            items.forEach(item => {
+                let price = item.dataset.price;
+                let quantity = item.value;
+                total += price * quantity;
+            });
+            document.getElementById('total').textContent = 'Общая сумма: ' + total + 'р.';
+        }
+        function clearCart() {
+            let quantities = document.querySelectorAll('.quantity');
+            quantities.forEach(quantity => {
+                quantity.value = '';
+            });
+            document.getElementById('total').textContent = '';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    
+    <main>
+        <div id="cart">
+            <div class="item">
+                <span>Яблоки: Цена 100р.</span>
+                <input type="number" min="0" placeholder="Сколько яблок надо?" class="quantity" data-price="100">
+            </div>
+            <div class="item">
+                <span>Груши: Цена 80р.</span>
+                <input type="number" min="0" placeholder="Введите количество груш" class="quantity" data-price="80">
+            </div>
+            <div class="item">
+                <span>Апельсины: Цена 150р.</span>
+                <input type="number" min="0" placeholder="Количество апельсинов" class="quantity" data-price="150">
+            </div>
+            <div class="item">
+                <span>Дыни: Цена 300р.</span>
+                <input type="number" min="0" placeholder="Сколько дынь добавить?" class="quantity" data-price="300">
+            </div>
+            <div class="item">
+                <span>Бананы: Цена 60р.</span>
+                <input type="number" min="0" placeholder="Укажите число бананов" class="quantity" data-price="60">
+            </div>
+        </div>
+        
+        <button onclick="calculateTotal()">Рассчитать</button>
+        <button onclick="clearCart()">Очистить</button>
+
+        <div id="total"></div>
+    </main>
+
+    <footer>
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
