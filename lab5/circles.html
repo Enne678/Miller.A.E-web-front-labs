@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #fff;
+            transition: all 0.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+            width: 0!important;
+            height: 0!important;      
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const colors = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+                '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D'];
+            function createCircles() {
+                const main = document.querySelector('#main');
+                for (let i = 1; i <= 10; i++) {
+                    const circle = document.createElement('div');
+                    circle.classList.add('circle');
+                    circle.textContent = i;
+                    circle.style.backgroundColor = colors[i - 1];
+                    circle.style.top = `${Math.random() * (window.innerHeight - 100)}px`; 
+                    circle.style.left = `${Math.random() * (window.innerWidth - 100)}px`;
+                    circle.addEventListener('click', function() {
+                        this.classList.add('hidden'); 
+                    });
+                    main.appendChild(circle);
+                }
+            }
+            createCircles();
+            document.getElementById('reset').addEventListener('click', function() {
+                const circles = document.querySelectorAll('.circle');
+                circles.forEach(circle => {
+                    circle.classList.remove('hidden');
+                    circle.style.width = '100px';
+                    circle.style.height = '100px';
+                    circle.style.opacity = '1';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    
+    <main id="main">
+        <button id="reset">Сбросить</button>
+    </main>
+
+    <footer>
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
