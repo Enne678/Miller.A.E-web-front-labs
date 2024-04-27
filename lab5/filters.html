@@ -9,10 +9,27 @@
     <link rel="icon" href="../favicon-16x16.png">
     <link rel="icon" href="../favicon-32x32.png">
     <script>
-        function blurChange() {
-            let value = document.getElementById('blurValue').value + 'px';
-            document.getElementById('blurOutput').innerText = value;
-            document.getElementById('blurImage').style.filter = 'blur(' + value + ')';
+        function updateFilter() {
+            image = document.getElementById('image');
+            blurValue = document.getElementById('blurValue').value + 'px';
+            brightnessValue = document.getElementById('brightnessValue').value + '%';
+            contrastValue = document.getElementById('contrastValue').value + '%';
+            grayscaleValue = document.getElementById('grayscaleValue').value + '%';
+            hueRotateValue = document.getElementById('hueRotateValue').value + 'deg';
+            invertValue = document.getElementById('invertValue').value + '%';
+            saturateValue = document.getElementById('saturateValue').value + '%';
+            sepiaValue = document.getElementById('sepiaValue').value + '%';
+
+            image.style.filter = `blur(${blurValue}) brightness(${brightnessValue}) contrast(${contrastValue}) grayscale(${grayscaleValue}) hue-rotate(${hueRotateValue}) invert(${invertValue}) saturate(${saturateValue}) sepia(${sepiaValue})`;
+
+            document.getElementById('blurOutput').innerText = blurValue;
+            document.getElementById('brightnessOutput').innerText = brightnessValue;
+            document.getElementById('contrastOutput').innerText = contrastValue;
+            document.getElementById('grayscaleOutput').innerText = grayscaleValue;
+            document.getElementById('hueRotateOutput').innerText = hueRotateValue;
+            document.getElementById('invertOutput').innerText = invertValue;
+            document.getElementById('saturateOutput').innerText = saturateValue;
+            document.getElementById('sepiaOutput').innerText = sepiaValue;
         }
     </script>
 </head>
@@ -24,10 +41,47 @@
     <main>
         <div>
             Фильтр blur:
-            <input type="range" min="0" max="20" value="0" onchange="blurChange()" id="blurValue">
+            <input type="range" min="0" max="20" value="0" onchange="updateFilter()" id="blurValue">
             <span id="blurOutput"></span>
         </div>
-        <div><img src="6f91da5e-cdb5-11eb-b4a2-22af4335d1e8.800x600.jpg" id="blurImage"></div>
+        <div>
+            Фильтр brightness:
+            <input type="range" min="0" max="500" value="100" onchange="updateFilter()" id="brightnessValue">
+            <span id="brightnessOutput"></span>
+        </div>
+        <div>
+            Фильтр contrast:
+            <input type="range" min="0" max="500" value="100" onchange="updateFilter()" id="contrastValue">
+            <span id="contrastOutput"></span>
+        </div>
+        <div>
+            Фильтр grayscale:
+            <input type="range" min="0" max="100" value="0" onchange="updateFilter()" id="grayscaleValue">
+            <span id="grayscaleOutput"></span>
+        </div>
+        <div>
+            Фильтр hue-rotate:
+            <input type="range" min="0" max="360" value="0" onchange="updateFilter()" id="hueRotateValue">
+            <span id="hueRotateOutput"></span>
+        </div>
+        <div>
+            Фильтр invert:
+            <input type="range" min="0" max="100" value="0" onchange="updateFilter()" id="invertValue">
+            <span id="invertOutput"></span>
+        </div>
+        <div>
+            Фильтр saturate:
+            <input type="range" min="0" max="500" value="100" onchange="updateFilter()" id="saturateValue">
+            <span id="saturateOutput"></span>
+        </div>
+        <div>
+            Фильтр sepia:
+            <input type="range" min="0" max="100" value="0" onchange="updateFilter()" id="sepiaValue">
+            <span id="sepiaOutput"></span>
+        </div>
+        <div>
+            <img src="6f91da5e-cdb5-11eb-b4a2-22af4335d1e8.800x600.jpg" id="image">
+        </div>
     </main>
 
     <footer>
