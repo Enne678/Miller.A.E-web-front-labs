@@ -19,6 +19,16 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background-color: #f9f9f9;
     }
+    .rules-btn {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+    }
+    .rules {
+            display: none;
+            text-align: left;
+            margin-top: 20px;
+    }
     </style>
     <script>
         let number;
@@ -64,6 +74,17 @@
         }
         document.querySelector('.game:nth-child(3) button').addEventListener('click', playAgain);
         }
+        function toggleRules() {
+            var rules = document.querySelector('.rules');
+            var button = document.querySelector('.rules-btn');
+            if (rules.style.display === 'none') {
+                rules.style.display = 'block';
+                button.textContent = 'Скрыть правила игры';
+            } else {
+                rules.style.display = 'none';
+                button.textContent = 'Показать правила игры';
+            }
+        }
     </script>
 </head>
 <body>
@@ -97,6 +118,19 @@
             </div>
             <div>
                 <button>Сыграть ещё раз</button>
+            </div>
+        </div>
+        <div class="game">
+            <button class="rules-btn" onclick="toggleRules()">Показать правила игры</button>
+            <div class="rules">
+                <h2>Правила игры:</h2>
+                <ol type="I">
+                    <li>Игра начинается при нажатии на кнопку "Сыграть в игру".</li>
+                    <li>Задача игрока - угадать число от 1 до 100.</li>
+                    <li>После каждой попытки игрок получает подсказку: число больше или меньше.</li>
+                    <li>Игра продолжается до тех пор, пока число не будет угадано.</li>
+                    <li>После угадывания числа игрок может начать игру заново.</li>
+                </ol>
             </div>
         </div>
     </main>
