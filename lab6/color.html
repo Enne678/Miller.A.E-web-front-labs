@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .color {
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.5s, color 0.5s;
+            background-color: yellow;
+        }
+        .yellow {
+            background-color: yellow;
+            color: black;
+        }
+        .red {
+            background-color: red;
+            color: white;
+        }
+        .green {
+            background-color: green;
+            color: white;
+        }
+        .blue {
+            background-color: blue;
+            color: white;
+        }
+        .black {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        function changeColor(div) {
+            var colorName = div.querySelector('#color-name');
+            switch(div.style.backgroundColor) {
+                case 'yellow':
+                    div.style.backgroundColor = 'red';
+                    colorName.innerHTML = 'красный';
+                    div.style.color = 'white';
+                    break;
+                case 'red':
+                    div.style.backgroundColor = 'black';
+                    colorName.innerHTML = 'чёрный';
+                    div.style.color = 'white';
+                    break;
+                case 'black':
+                    div.style.backgroundColor = 'green';
+                    colorName.innerHTML = 'зелёный';
+                    div.style.color = 'white';
+                    break;
+                case 'green':
+                    div.style.backgroundColor = 'blue';
+                    colorName.innerHTML = 'синий';
+                    div.style.color = 'white';
+                    break;
+                case 'blue':
+                    div.style.backgroundColor = 'purple';
+                    colorName.innerHTML = 'фиолетовый';
+                    div.style.color = 'white';
+                    break;
+                default:
+                    div.style.backgroundColor = 'yellow';
+                    colorName.innerHTML = 'жёлтый';
+                    div.style.color = 'black';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    
+    <main>
+<div class="color" onclick="changeColor(this)">
+    Цвет: <span id="color-name">жёлтый</span><br>
+    Сделайте двойной щелчок, чтобы сменить.
+</div>
+    </main>
+
+    <footer>
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
