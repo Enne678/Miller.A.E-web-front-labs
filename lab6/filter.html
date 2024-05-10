@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+    function filter() {
+        let color = document.getElementById('wear-color').value;
+        let type = document.getElementById('wear-type').value;
+        let wear = document.getElementById('wear');
+
+        if (color == 'Красный' && type == 'Футболка') {
+            wear.src = 'red-f.jpg';
+        } else if (color == 'Белый' && type == 'Футболка') {
+            wear.src = 'white-f.jpg';
+        } else if (color == 'Чёрный' && type == 'Футболка') {
+            wear.src = 'black-f.jpg';
+        } else if (color == 'Красный' && type == 'Поло') {
+            wear.src = 'red-p.jpg';
+        } else if (color == 'Белый' && type == 'Поло') {
+            wear.src = 'white-p.jpg';
+        } else if (color == 'Чёрный' && type == 'Поло') {
+            wear.src = 'black-p.jpg';
+        } else if (color == 'Красный' && type == 'Майка') {
+            wear.src = 'red-m.jpg';
+        } else if (color == 'Белый' && type == 'Майка') {
+            wear.src = 'white-m.jpg';
+        } else if (color == 'Чёрный' && type == 'Майка') {
+            wear.src = 'black-m.jpg';
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    
+    <main>
+        <div>
+            Цвет одежды:
+            <select id="wear-color">
+                <option>Красный</option>
+                <option>Белый</option>
+                <option>Чёрный</option>
+            </select><br>
+
+            Тип одежды:
+            <select id="wear-type">
+                <option>Футболка</option>
+                <option>Поло</option>
+                <option>Майка</option>
+            </select><br>
+
+            <button onclick="filter()">OK</button><br>
+
+             <img id="wear">
+        </div>
+    </main>
+
+    <footer>
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
