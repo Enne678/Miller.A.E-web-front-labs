@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .balance, .total, #message { margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        button { margin-top: 10px; }
+    </style>
+    <script>
+        function checkOut() {
+            var balance = parseInt(document.getElementById('balance').value);
+            var products = document.querySelectorAll('.product');
+            var total = 0;
+            var isEmpty = true;
+
+            for (var i = 0; i < products.length; i++) {
+                var price = parseInt(products[i].cells[1].textContent);
+                var quantityInput = products[i].querySelector('input');
+                var quantity = quantityInput.value ? parseInt(quantityInput.value) : 0;
+
+                if (quantity < 0) {
+                    document.getElementById('message').textContent = 'Количество товара не может быть отрицательным.';
+                    document.getElementById('message').style.color = 'red';
+                    return;
+                }
+
+                if (quantity > 0) {
+                    isEmpty = false;
+                }
+
+                total += price * quantity;
+            }
+
+            if (isEmpty) {
+                document.getElementById('message').textContent = 'Выберите хотя бы один товар.';
+                document.getElementById('message').style.color = 'red';
+                return;
+            }
+
+            document.getElementById('total').textContent = total;
+
+            if (total > balance) {
+                document.getElementById('message').textContent = 'У вас недостаточно денег!';
+                document.getElementById('message').style.color = 'red';
+            } else {
+                document.getElementById('message').textContent = 'Покупка успешно оформлена!';
+                document.getElementById('message').style.color = 'green';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div class="balance">
+            Мой баланс: <input type="number" id="balance" value="1000"> р
+        </div>
+        <table id="products">
+            <tr>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Количество</th>
+            </tr>
+            <tr class="product">
+                <td>Молоко</td>
+                <td>90 р</td>
+                <td><input type="number" value="0"></td>
+            </tr>
+            <tr class="product">
+                <td>Хлеб</td>
+                <td>50 р</td>
+                <td><input type="number" value="0"></td>
+            </tr>
+            <tr class="product">
+                <td>Сливочное масло</td>
+                <td>150 р</td>
+                <td><input type="number" value="0"></td>
+            </tr>
+            <tr class="product">
+                <td>Сыр</td>
+                <td>220 р</td>
+                <td><input type="number" value="0"></td>
+            </tr>
+            <tr class="product">
+                <td>Яблоки</td>
+                <td>60 р</td>
+                <td><input type="number" value="0"></td>
+            </tr>
+            <tr class="product">
+                <td>Шоколад</td>
+                <td>120 р</td>
+                <td><input type="number" value="0"></td>
+            </tr>
+            <tr class="product">
+                <td>Чай</td>
+                <td>80 р</td>
+                <td><input type="number" value="0"></td>
+            </tr>
+        </table>
+        <div class="total">
+            Итого: <span id="total">0</span> р
+        </div>
+        <button onclick="checkOut()">ОК</button>
+        <div id="message"></div>
+    </main>
+
+    <footer>
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
