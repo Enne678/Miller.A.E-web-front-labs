@@ -18,6 +18,15 @@
             color: red;
             line-height: 40px;
         }
+        .special-block {
+            background-color: orange;
+            height: 50px;
+            border: 2px dashed blue;
+            margin: 15px 0;
+            text-align: center;
+            color: white;
+            line-height: 50px;
+        }
     </style>
     <script>
         function addNewBlock() {
@@ -48,6 +57,18 @@
                 main.appendChild(newBlock);
             }
         }
+        function add20_50() {
+                let main = document.querySelector('main');
+                for(let i = 20; i<=50; i+=2.5) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.width = '60px';
+                    newBlock.className = 'special-block';
+
+                    newBlock.innerHTML = `${i}`;
+
+                    main.appendChild(newBlock);
+            }
+        }
     </script>
 </head>
 <body>
@@ -59,6 +80,7 @@
         <button onclick="addNewBlock()">Добавить блок</button>
         <input type="number" id="blockCount" placeholder="Введите количество блоков" min="1">
         <button onclick="addNewBlocks()">Добавить блоки</button>
+        <button onclick="add20_50()">20 => 50</button>
     </main>
 
     <footer>
