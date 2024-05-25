@@ -47,6 +47,23 @@
             color: white;
             line-height: 40px;
         }
+        .color-circle {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin: 5px;
+            font-size: 14px;
+            color: white;
+        }
+        .red-circle {
+            background-color: red;
+        }
+        .green-circle {
+            background-color: green;
+        }
     </style>
     <script>
         function addNewBlock() {
@@ -110,6 +127,24 @@
                 main.appendChild(block);
             }
         }
+        function addColorCircles() {
+            let numberOfCircles = parseInt(document.getElementById('circleCount').value, 10);
+
+            let main = document.querySelector('main');
+            main.innerHTML = '';
+
+            for (let i = numberOfCircles; i >= 1; i--) {
+                let circle = document.createElement('div');
+                circle.className = 'color-circle';
+                if (i % 2 === 0) {
+                    circle.classList.add('green-circle');
+                } else {
+                    circle.classList.add('red-circle');
+                }
+                circle.innerHTML = `${i}`;
+                main.appendChild(circle);
+            }
+        }
     </script>
 </head>
 <body>
@@ -124,6 +159,8 @@
         <button onclick="add20_50()">20 => 50</button>
         <button onclick="addCircles()">10 => -80</button>
         <button onclick="addOpacityBlocks()">Полупрозрачные блоки</button>
+        <input type="number" id="circleCount" placeholder="Введите количество кругов" min="1">
+        <button onclick="addColorCircles()">Цветные круги</button>
     </main>
 
     <footer>
