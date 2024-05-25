@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function fetchWeatherData() {
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia/Bangkok';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const times = data.hourly.time;
+                    const temperatures = data.hourly.temperature_2m;
+
+                    const timeIndices = {
+                        '08:00': times.findIndex(time => time.endsWith('T08:00')),
+                        '12:00': times.findIndex(time => time.endsWith('T12:00')),
+                        '20:00': times.findIndex(time => time.endsWith('T20:00'))
+                    };
+
+                    const weatherHTML = `
+                        <div style="border: 2px solid #000; display: inline-block; padding: 20px; background-color: #c5ffdd; margin: 10px;">
+                        <h3>Температура в Новосибирске:</h3>
+                        <ol>
+                        <li><p>Утром в 8:00: ${temperatures[timeIndices['08:00']]} °C</p></li>
+                        <li><p>Днём в 12:00: ${temperatures[timeIndices['12:00']]} °C</p></li>
+                        <li><p>Вечером в 20:00: ${temperatures[timeIndices['20:00']]} °C</p></li>
+                        </ol>
+                        </div>
+                    `;
+
+                    document.getElementById('weather-info').innerHTML = weatherHTML;
+                })
+                .catch(error => {
+                    console.error('Ошибка при получении данных о погоде:', error);
+                    document.getElementById('weather-info').innerHTML = '<p>Не удалось получить данные о погоде.</p>';
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    
+    <main>
+        <h1 style="text-align: center;">Прогноз погоды</h1>
+        <button onclick="fetchWeatherData()">Узнать погоду</button>
+        <div id="weather-info"></div>
+    </main>
+
+    <footer>
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
