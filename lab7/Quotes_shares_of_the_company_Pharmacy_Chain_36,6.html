@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        const dates = ["2024-05-13", "2024-05-14", "2024-05-15", "2024-05-16", "2024-05-17", "2024-05-20", "2024-05-21", "2024-05-22", "2024-05-23", "2024-05-24"];
+        const prices = [13.96, 13.83, 13.71, 13.35, 13.30, 13.23, 13.29, 13.30, 12.85, 12.58];
+            
+        function showStockData() {
+            let table = "<table><tr><th>Дата</th><th>Цена акций</th><th>Разница</th></tr>";
+            let sum = 0;
+            let maxPrice = -Infinity;
+            let minPrice = Infinity;
+    
+            for (let i = 0; i < dates.length; i++) {
+                let difference = i === 0 ? "-" : (prices[i] - prices[i - 1]).toFixed(3);
+                table += `<tr><td>${dates[i]}</td><td>${prices[i]}</td><td>${difference}</td></tr>`;
+                sum += prices[i];
+                if (prices[i] > maxPrice) maxPrice = prices[i];
+                if (prices[i] < minPrice) minPrice = prices[i];
+            }
+            table += "</table>";
+            let avgPrice = (sum / prices.length).toFixed(3);
+    
+            table += `<p>Среднее значение стоимости акции: ${avgPrice}</p>`;
+            table += `<p>Максимальное значение стоимости акции: ${maxPrice}</p>`;
+            table += `<p>Минимальное значение стоимости акции: ${minPrice}</p>`;
+    
+            document.getElementById("stockData").innerHTML = table;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    
+    <main>
+        <button onclick="showStockData()">Курс акций «Аптечная сеть 36,6»</button>
+        <div id="stockData"></div>
+    </main>
+
+    <footer>
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
