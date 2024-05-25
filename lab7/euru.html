@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миллер Алексей Евгеньевич. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .exchange-rate {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            font-family: Arial, sans-serif;
+        }
+        .exchange-rate h2 {
+            margin-top: 0;
+        }
+        .exchange-rate p {
+            margin: 5px 0;
+        }
+        .exchange-rate .up {
+            color: green;
+        }
+        .exchange-rate .down {
+            color: red;
+        }
+    </style>
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                    const currentRate = json.Valute.EUR.Value;
+                    const previousRate = json.Valute.EUR.Previous;
+                    const date = json.Date;
+                    const difference = currentRate - previousRate;
+                    const direction = difference > 0 ? 'поднялся' : 'опустился';
+                    const directionClass = difference > 0 ? 'up' : 'down';
+
+                    document.getElementById('exchangeRate').innerHTML = `
+                        <div class="exchange-rate">
+                            <h2>Курс евро на ${new Date(date).toLocaleDateString()}</h2>
+                            <p>Текущий курс: ${currentRate.toFixed(2)} руб.</p>
+                            <p>Курс за предыдущую дату: ${previousRate.toFixed(2)} руб.</p>
+                            <p class="${directionClass}">Разница: ${difference.toFixed(2)} руб. (${direction})</p>
+                            <p>Источник: <a href="https://www.cbr-xml-daily.ru/" target="_blank">ЦБ РФ</a></p>
+                        </div>
+                    `;
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    
+    <main>
+        <button onclick="getEuroExchangeRate()" style="margin: 10px;">Курс euro</button>
+        <div id="exchangeRate"></div> 
+    </main>
+
+    <footer>
+        &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
