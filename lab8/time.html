@@ -8,20 +8,26 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../favicon-16x16.png">
     <link rel="icon" href="../favicon-32x32.png">
+    <script src="time.js"></script>
+    <style>
+        #time {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20%;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        НГТУ, ФБ, Лабораторная работа 8
-    </header>
-    
-    <main>
-        <div class="menu">
-            <ol>
-                <li><a href="date.html">Дата</a></li>
-                <li><a href="get-days-count.html">Число дней с даты рождения</a></li>
-                <li><a href="time.html">Число дней с даты рождения</a></li>
-        </div>
-    </main>
+<body onload="showTime()">
+    <div id="time">00:00:00</div>
 
     <footer>
         &copy; Алексей Миллер, ФБИ-24, 2 курс, 2024
