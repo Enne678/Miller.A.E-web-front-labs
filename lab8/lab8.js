@@ -1,4 +1,7 @@
 function showDate() {
+    const dt = new Date();
+    const daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+
     const locales = [
         { locale: 'ru-RU', label: 'Дата и время для русской локали' },
         { locale: 'en-ZA', label: 'Дата и время для локали ЮАР' },
@@ -8,17 +11,29 @@ function showDate() {
         { locale: 'zh-CN', label: 'Дата и время для китайской локали' }
     ];
 
-    const out = document.getElementById('current-date');
-    let formattedDate = '';
+    let localizedDatesHTML = '';
 
     locales.forEach((locale) => {
         const today = new Date();
         const dateOptions = { dateStyle: 'full', timeStyle: 'long' };
-        formattedDate += `
-            <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333; margin-bottom: 10px;">
+        localizedDatesHTML += `
+            <div>
                 <strong>${locale.label}:</strong> ${today.toLocaleString(locale.locale, dateOptions)}
             </div>`;
     });
 
-    out.innerHTML = formattedDate;
+    const currentDateHTML = `
+        <div id="current-date">
+            <strong>Текущая дата и время:</strong> ${dt.toLocaleString('ru-RU')}
+        </div>
+        <div id="date-components">
+            <div><strong>Текущий год:</strong> ${dt.getFullYear()}</div>
+            <div><strong>Текущий месяц:</strong> ${dt.getMonth() + 1}</div>
+            <div><strong>Текущая дата:</strong> ${dt.getDate()}</div>
+            <div><strong>День недели:</strong> ${daysOfWeek[dt.getDay()]}</div>
+        </div>
+    `;
+
+    document.getElementById('localized-dates').innerHTML = localizedDatesHTML;
+    document.getElementById('current-date-components').innerHTML = currentDateHTML;
 }
