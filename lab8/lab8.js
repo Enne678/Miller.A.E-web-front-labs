@@ -17,7 +17,7 @@ function showDate() {
         const today = new Date();
         const dateOptions = { dateStyle: 'full', timeStyle: 'long' };
         localizedDatesHTML += `
-            <div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333; margin-bottom: 10px;">
                 <strong>${locale.label}:</strong> ${today.toLocaleString(locale.locale, dateOptions)}
             </div>`;
     });
@@ -36,4 +36,19 @@ function showDate() {
 
     document.getElementById('localized-dates').innerHTML = localizedDatesHTML;
     document.getElementById('current-date-components').innerHTML = currentDateHTML;
+}
+
+function showDayOfWeek() {
+    const day = document.getElementById('input-day').value;
+    const month = document.getElementById('input-month').value - 1;
+    const year = document.getElementById('input-year').value;
+
+    const date = new Date(year, month, day);
+    const daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    const dayOfWeek = daysOfWeek[date.getDay()];
+
+    document.getElementById('day-of-week-result').innerHTML = `
+        <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333; margin-top: 10px;">
+            <strong>День недели:</strong> ${dayOfWeek}
+        </div>`;
 }
